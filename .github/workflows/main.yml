@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  selenium_test_job:
+    runs-on: ubuntu-latest
+    name: Selenium Test
+    steps:
+      # To use this repository's private action, you must check out the repository
+      - name: Checkout
+        uses: EQWorks/selenium-test-action@v1
+      - name: Basic test for Selenium
+        uses: ./ # Uses an action in the root directory
+        id: selenium-test
+        with:
+          who-to-greet: 'LOCUS who'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
