@@ -1,16 +1,5 @@
-# action.yml
-name: 'Selenium test Github Action'
-description: 'Selenium test for Github'
-inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+name: 'Selenium Docker Action'
+description: 'Github Action using Selenium Docker'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.who-to-greet }}
