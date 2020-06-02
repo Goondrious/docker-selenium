@@ -7,23 +7,23 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run docker-compose
         run: docker-compose up
-      # - name: Manually run test
-      #   run: docker exec 
+      # - name: Manually run test in docker
+      #   run: docker exec
 
-    #   - name: Set Node.js version
-    #     uses: actions/setup-node@v1
-    #     with:
-    #       node-version: 12
+      # - name: Set Node.js version
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 12
 
-    #   - name: Cache Node Modules
-    #     uses: actions/cache@v1
-    #     with:
-    #       path: node_modules
-    #       key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
-    #       restore-keys: |
-    #         ${{ runner.OS }}-build-${{ env.cache-name }}-
-    #         ${{ runner.OS }}-build-
-    #         ${{ runner.OS }}-
+      # - name: Cache Node Modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.OS }}-build-${{ env.cache-name }}-
+      #       ${{ runner.OS }}-build-
+      #       ${{ runner.OS }}-
       # - run: yarn install
       # - name: "Run tests"
       #   env:

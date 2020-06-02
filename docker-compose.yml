@@ -64,7 +64,7 @@ services:
       - chrome
       - firefox
     # command: yarn test
-    command: ['./wait-for-grid.sh', 'selenium-hub:4444/wd/hub', 'yarn test']
+    command: ['./wait-for-grid.sh', 'selenium-hub:4444/wd/hub', 'env HUB=selenium-hub:4444/wd/hub yarn test']
 networks:
   test:
     driver: bridge

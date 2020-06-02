@@ -4,8 +4,9 @@ const chrome = require('selenium-webdriver/chrome')
 const chai = require('chai')
 const expect = chai.expect
 
+console.log("-----env: ", process.env.HUB)
 const driver = new Builder()
-  .usingServer('http://172.18.0.2:4444/wd/hub')
+  .usingServer('http://' + process.env.HUB)
   // .usingServer('http:/selenium-hub:4444/wd/hub')
   // .usingServer('http://localhost:4444/wd/hub')
   .forBrowser('chrome').build()
