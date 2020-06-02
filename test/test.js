@@ -25,6 +25,7 @@ describe('Covid Dashboard', function() {
       driver.wait(until.elementLocated(elements[key]))
       return driver.findElement(elements[key]).getText()
     */
+    await dashPage.waitUntilVisible('header')
     const title = await dashPage.getText('header')
     
     // driver.wait(until.elementLocated(By.tagName('h5')))

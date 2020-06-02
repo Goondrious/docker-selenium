@@ -13,7 +13,7 @@ module.exports = (driver, url) => {
     navigate: () => driver.navigate().to(url),
     waitUntilVisible: key => driver.wait(until.elementLocated(elements[key])),
     getText: async key => {
-      driver.wait(until.elementLocated(elements[key]))
+      await driver.wait(until.elementLocated(elements[key]))
       return driver.findElement(elements[key]).getText()
     },
     click: key => {
