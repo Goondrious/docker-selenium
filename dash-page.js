@@ -12,7 +12,7 @@ module.exports = (driver, url) => {
     elements,
     navigate: () => driver.navigate().to(url),
     waitUntilVisible: key => driver.wait(until.elementLocated(elements[key])),
-    getText: key => {
+    getText: async key => {
       driver.wait(until.elementLocated(elements[key]))
       return driver.findElement(elements[key]).getText()
     },

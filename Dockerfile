@@ -1,7 +1,10 @@
 
-FROM selenium/standalone-chrome:3.141.59-20200525
+FROM node:12
 
-EXPOSE 4444
+COPY package.json ./
+COPY ./test ./test
+COPY ./dash-page.js ./
+COPY ./wait-for-grid.sh ./
+RUN yarn
 
-VOLUME /dev/shm
-# just run the server
+#TODO: dockerize the whole app and test?
