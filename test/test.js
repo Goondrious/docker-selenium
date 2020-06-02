@@ -31,7 +31,7 @@ describe('Covid Dashboard', function() {
     // driver.wait(until.elementLocated(By.tagName('h5')))
     // const title = await driver.findElement(By.tagName('h5')).getText()
     expect(title).to.contain('Canada COVID')
-    expect(title).to.equal('Canada COVID 19 Insights????')
+    expect(title).to.equal('Canada COVID 19 Insights')
     console.log('-----', title)
   })
 
