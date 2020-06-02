@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run docker-compose
-        run: docker-compose up -d
+        run: docker-compose up --exit-code-from test_runner
       - name: Check test_runner Exit Code
         run: docker inspect test_runner --format='{{.State.ExitCode}}'
       # - name: Manually run test in docker
