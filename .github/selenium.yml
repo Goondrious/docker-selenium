@@ -1,0 +1,35 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: node:12
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        volumes:
+          - /dev/shm
+        ports:
+          - 4444:4444
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Cache Node Modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ env.cache-name }}-
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}-
+      - run: yarn install
+      - name: "env test"
+        env:
+          SELENIUM_SERVER: http://selenium:4444/wd/hub
+        run: yarn test
