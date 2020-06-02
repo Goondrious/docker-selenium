@@ -6,7 +6,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run docker-compose
-        run: docker-compose up -d
+        run: docker-compose up
+      # - name: Manually run test
+      #   run: docker exec 
 
     #   - name: Set Node.js version
     #     uses: actions/setup-node@v1
